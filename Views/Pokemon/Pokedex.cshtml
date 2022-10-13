@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Pokemon>
+
+@{
+    ViewData["Title"] = "Pokedex";
+}
+
+<h1>Pokedex</h1>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="card m-1 border-dark @Html.DisplayFor(modelItem => item.type[0])" style="width:150px;">
+            <h5 class="card-title text-center">@Html.DisplayFor(modelItem => item.name.english)</h5>
+            <img class="align-self-center" src="@Html.DisplayFor(modelItem => item.image.hires)" width="100" height="100" alt="@Html.DisplayFor(modelItem => item.name.english) picture" />
+            <a asp-action="Detail" asp-route-id="@item.id">Details</a>
+        </div>
+    }
+</div>

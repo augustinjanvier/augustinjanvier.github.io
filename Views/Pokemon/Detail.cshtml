@@ -1,0 +1,76 @@
+﻿@model Pokemon
+
+@{
+    ViewData["Title"] = "Detail";
+
+    int nextId = (Model.id + 1) % 898;
+    int previousId = (Model.id - 1) % 898;
+
+    int hp = Model._base.HP;
+    int attack = Model._base.Attack;
+    int defense = Model._base.Defense;
+    int spAttack = Model._base.SpAttack;
+    int spDefense = Model._base.SpDefense;
+    int speed = Model._base.Speed;
+}
+
+<div class="container">
+    <div class="row">
+
+        <!-- previous Pokemon -->
+        <div class="col-sm">
+            <a asp-action="Detail" asp-route-id="@previousId">Previous</a>
+        </div>
+
+        <!-- Space for the current Pokemon -->
+        <div class="col-10">
+            <div class="card m-1 border-dark @Html.DisplayFor(model => model.type[0])">
+                <h1 class="card-title text-center">@Html.DisplayFor(model => model.name.english)</h1>
+                <img class="align-self-center" src="@Html.DisplayFor(model => model.image.hires)" alt="@Html.DisplayFor(model => model.name.english) picture" />
+            
+                <!-- Stats -->
+                <div class="row">
+                    <div class="col-2">
+                        <h5>HP</h5>
+                        <h5>Attack</h5>
+                        <h5>Defense</h5>
+                        <h5>SpAttack</h5>
+                        <h5>SpDefense</h5>
+                        <h5>Speed</h5>
+                    </div>
+                    <div class="col-sm">
+                        <div class="progress p-1 m-1" style="height: 30px">
+                            <div class="progress-bar" style="width: @(hp * 100 / 255)%; text-align: left;">@hp</div>
+                        </div>
+                        <div class="progress p-1 m-1" style="height: 30px">
+                            <div class="progress-bar" style="width: @(attack * 100 / 255)%; text-align: left;">@attack</div>
+                        </div>
+                        <div class="progress p-1 m-1" style="height: 30px">
+                            <div class="progress-bar" style="width: @(defense * 100 / 255)%; text-align: left;">@defense</div>
+                        </div>
+                        <div class="progress p-1 m-1" style="height: 30px">
+                            <div class="progress-bar" style="width: @(spAttack * 100 / 255)%; text-align: left;">@spAttack</div>
+                        </div>
+                        <div class="progress p-1 m-1" style="height: 30px">
+                            <div class="progress-bar" style="width: @(spDefense * 100 / 255)%; text-align: left;">@spDefense</div>
+                        </div>
+                        <div class="progress p-1 m-1" style="height: 30px">
+                            <div class="progress-bar" style="width: @(speed * 100 / 255)%; text-align: left;">@speed</div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+
+                    </div>
+                </div>
+
+            
+            </div>
+        </div>
+
+        <!-- next Pokemon -->
+        <div class="col-sm">
+            <a asp-action="Detail" asp-route-id="@nextId">Next</a>
+        </div>
+
+    </div>
+</div>

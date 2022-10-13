@@ -1,0 +1,75 @@
+.Grass {
+    background-color: palegreen;
+}
+
+.Fire {
+    background-color: orangered;
+}
+
+.Bug {
+    background-color: yellowgreen;
+}
+
+.Normal {
+    background-color: antiquewhite;
+}
+
+.Water {
+    background-color: aqua;
+}
+
+.Fighting {
+    background-color: saddlebrown;
+}
+
+.Flying {
+    background-color: azure;
+}
+
+.Poison {
+    background-color: mediumpurple;
+}
+
+.Ground {
+    background-color: sandybrown;
+}
+
+.Rock {
+    background-color: dimgrey
+}
+
+.Ghost {
+    background-color: rebeccapurple;
+}
+
+.Electric {
+    background-color: yellow;
+}
+
+.Psychic {
+    background-color: purple;
+}
+
+.Dragon {
+    background-color: red;
+}
+
+.Fairy {
+    background-color: pink;
+}
+
+.Ice {
+    background-color: powderblue;
+}
+
+.Shadow {
+    background-color: darkgrey;
+}
+
+.Dark {
+    background-color: darkgrey;
+}
+
+.Steel {
+    background-color: grey;
+}
