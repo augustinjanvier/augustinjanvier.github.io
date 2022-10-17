@@ -1,4 +1,5 @@
-﻿@model Pokemon
+﻿@using MyPokedex.Controllers
+@model Pokemon
 
 @{
     ViewData["Title"] = "Detail";
@@ -12,6 +13,8 @@
     int spAttack = Model._base.SpAttack;
     int spDefense = Model._base.SpDefense;
     int speed = Model._base.Speed;
+
+    string[] types = Model.type;
 }
 
 <div class="container">
@@ -24,8 +27,15 @@
 
         <!-- Space for the current Pokemon -->
         <div class="col-10">
-            <div class="card m-1 border-dark @Html.DisplayFor(model => model.type[0])">
+            <div class="card m-1 border-dark text-white bg-dark">
                 <h1 class="card-title text-center">@Html.DisplayFor(model => model.name.english)</h1>
+                <div class="row">
+                    @foreach (var type in types) {
+                        <div class="col card m-1 border-dark text-center @type">
+                            <h4 class="text-dark">@type</h4>
+                        </div>
+                    }
+                </div>
                 <img class="align-self-center" src="@Html.DisplayFor(model => model.image.hires)" alt="@Html.DisplayFor(model => model.name.english) picture" />
             
                 <!-- Stats -->
@@ -63,6 +73,10 @@
                     </div>
                 </div>
 
+                <!-- OTHER (description, etc..)-->
+                <div>
+                    <p>@Html.DisplayFor(model => model.description)</p>
+                </div>
             
             </div>
         </div>
