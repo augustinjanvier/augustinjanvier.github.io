@@ -1,0 +1,14 @@
+﻿@model IEnumerable<PokemonCard>
+
+@{
+    ViewData["Title"] = "PokemonCards";
+}
+
+<h1>Base Set</h1>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <img src="@Html.DisplayFor(modelItem => item.images.small)" alt="@Html.DisplayFor(modelItem => item.name)" style="width:200px;" />
+    }
+</div>

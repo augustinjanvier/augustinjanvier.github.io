@@ -1,6 +1,7 @@
 ﻿using MyPokedex;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using MyPokedex.Models;
 
 namespace MyPokedex.Controllers
 {
@@ -9,6 +10,11 @@ namespace MyPokedex.Controllers
         public IActionResult Pokedex()
         {
             return View(GetPokedex());
+        }
+
+        public IActionResult PokemonCards()
+        {
+            return View(GetBaseSet());
         }
 
         public IActionResult Detail(int id)
@@ -36,6 +42,16 @@ namespace MyPokedex.Controllers
             Pokemon pokemon = pokedex.Find(p => p.id == id);
 
             return pokemon;
+        }
+
+        private List<PokemonCard> GetBaseSet()
+        {
+            StreamReader r = new StreamReader(Path.Combine(Environment.CurrentDirectory, @"Data\\baseset.json"));
+            string json = r.ReadToEnd();
+
+            List<PokemonCard> baseset = JsonConvert.DeserializeObject<List<PokemonCard>>(json);
+
+            return baseset;
         }
 
     }
